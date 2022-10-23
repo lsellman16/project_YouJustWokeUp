@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+ # The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -44,11 +44,6 @@ label start:
             "..."
             you "okay I'll hop out I guess..."
             jump outOfBedNEU
-        "Stay in Bed":
-            you "Yeah I'll stay in bed..."
-            "..."
-            you "okay I'll hop out I guess..."
-            jump outOfBedNEU
         "Get out":
             you "..."
             you "Nope"        
@@ -59,7 +54,6 @@ label start:
             jump outOfBedNEG
 
 label outOfBedNEU:
-
     "You are now out of bed"
     "..."
     "..."
@@ -67,7 +61,6 @@ label outOfBedNEU:
     jump bedroom0
 
 label outOfBedNEG:
-    
     "You are out of bed... (finally)"
     you "CHRIST NOT YOU TOO, SHUT UP FOR ONCE IN A WHILE"
     "..."
@@ -83,13 +76,12 @@ label bedroom0:
 
     menu:
         "Make Bed" if "Make Bed" in topics:
-
             "You make your bed, its a bit of a struggle."
             you "at least it's done now."
             jump bedroom0
 
         "Set Alarm" if "Set Alarm" in topics:
-            you "uhmmm, 8:45 should do"
+            you "uhmmm, 8:45am should do"
             jump bedroom0
 
         "Put Shoes Away" if "Put Shoes Away" in topics:
@@ -97,12 +89,6 @@ label bedroom0:
             you "over here"
             jump bedroom0
 
-
-
-
-
-
-
     # This ends the game.
 
-    return
+return
