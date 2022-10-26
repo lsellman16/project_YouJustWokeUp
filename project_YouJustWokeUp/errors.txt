@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 46: expected 'label_name' not found.
-    jump (outOfBedNEU)
-        ^
+File "game/script.rpy", line 75: choice menuitem expects a non-empty block.
+    "Exit living room":
+                       ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Oct 23 15:32:23 2022
+Wed Oct 26 12:10:00 2022
