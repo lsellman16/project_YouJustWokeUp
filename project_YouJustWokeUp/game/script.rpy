@@ -138,17 +138,19 @@ label hallway2:
 
     "You exit out into the hallway."
 
-    you "I need to go outside today."
+    you "Hmmm... something doesn't feel right indeed"
 
-    default hallway_menu1 = set()
+    "Darting around the room, you feel like you're in a cage, looking for a way out"
+
+    default hallway_menu2 = set()
 
     menu loop2menu2:
-        set hallway_menu1
+        set hallway_menu2
         "Look in the mirror":
             jump mirror2
         "Go to the living room":
             "You walk into your living room."
-            jump livingroom1
+            jump livingroom2
 
 label mirror2:
 
@@ -158,13 +160,71 @@ label mirror2:
 
     default mirror_menu2 = set()
 
-    menu loop1menu3:
+    menu loop2menu3:
         set mirror_menu2 #POTENTIAL fuckywucky line
         "Examine reflection":
             "Your reflection. It seems fine at first but you notice."
             you "its more distorted?, I'm confused"
-            jump loop1menu3
+            "..."
+            jump loop2menu3
         "Stop looking at reflection":
             jump hallway1
 
+label livingroom2:
+
+    default livingroom_menu2 = set()
+
+    menu loop2menu4:
+        set livingroom_menu2
+        "Look at photos":
+            you "I... why, the photos"
+            "you look at the photos, slightly distorted, not enough for anyone else to notice"
+            "But for you it's immediate"
+            jump loop2menu4
+        "Examine plants":
+            "One of the leaves is darker than the rest"
+            you "I gave them water, I do remember that!"
+            you "Ain't lookin to good on the leaves either"
+            you "I've got to get out of here"
+            jump loop2menu4
+        "Look at TV2":
+            "Nothing interesting playing"
+            you "Wait, what was that?!,"
+            you "..."
+            "..."
+            you " I swear I saw something on the tv"
+            "Stop scaring yourself, your acting stupid"
+            you "Wow, okay did not need that remark"
+            "..."
+            "Did you?"
+            "..."
+            you "uh..."
+            jump loop2menu4
+        "Exit living room":
+
+
+label frontdoor2:
+    "You enter your front foyer. Yet like everything, it feels off"
+    default frontdoor_menu2 = set()
+
+    menu loop2menu5:
+        set frontdoor_menu2
+        "Grab shoes":
+            "You grab your blu..."
+            you "Theres a tear in one shoe..."
+            "..."
+            "..."
+            you "...I liked them..."
+            "...I"
+            "You put the shoes back"
+            you "not feeling great rn"
+            jump loop2menu5
+        "Examine door":
+            you "Door looks even more beaten up "
+            jump loop2menu5
+        "Examine window":
+            "It seems darker than before, maybe go investigate."
+            jump loop2menu5
+        "Exit front door":
+            "Second loop ended."
 return
