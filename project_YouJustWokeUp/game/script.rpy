@@ -10,7 +10,8 @@ define you = Character("You", color="1f1fff")
 
 label start:
 
-    scene bg room
+    scene bedroomloopone
+    with fade
 
     # These display lines of dialogue.
 
@@ -34,6 +35,9 @@ label start:
             
 label hallway1:
 
+    scene hallwayloopone
+    with fade
+
     "You exit out into the hallway."
 
     you "I need to go outside today."
@@ -50,6 +54,9 @@ label hallway1:
 
 label mirror1:
 
+    scene mirrorloopone
+    with fade
+
     you "My reflection."
 
     default mirror_menu1 = set()
@@ -64,6 +71,9 @@ label mirror1:
 
 
 label livingroom1:
+
+    scene livingroomloopone
+    with fade
 
     default livingroom_menu1 = set()
 
@@ -83,6 +93,10 @@ label livingroom1:
             jump frontdoor1
 
 label frontdoor1:
+
+    scene frontdoorloopone
+    with fade
+
     "You enter your front foyer."
     default frontdoor_menu1 = set()
 
@@ -200,7 +214,7 @@ label livingroom2:
             "..."
             you "uh..."
             jump loop2menu4
-        "Exit living room":
+        "Exit living room"
 
 
 label frontdoor2:

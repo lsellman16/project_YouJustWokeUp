@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 187: choice menuitem expects a non-empty block.
-    "Exit living room2":
-                        ^
+File "game/script.rpy", line 13: end of line expected.
+    scene bg bedroom.png
+                    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Oct 26 14:09:51 2022
+Wed Oct 26 15:35:38 2022
