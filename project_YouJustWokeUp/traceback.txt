@@ -1,22 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 68, in script
-    jump second
-ScriptError: could not find label 'second'.
+  File "game/script.rpy", line 145, in script
+    menu loop2menu2:
+  File "game/script.rpy", line 146, in <module>
+    set hallway_menu
+NameError: name 'hallway_menu' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 68, in script
-    jump second
-  File "C:\Users\1026086\Documents\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1974, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\1026086\Documents\Renpy\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'second'.
+  File "game/script.rpy", line 145, in script
+    menu loop2menu2:
+  File "C:\Users\1023789\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1903, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\1023789\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 950, in menu
+    set = renpy.python.py_eval(set_expr) # @ReservedAssignment
+  File "C:\Users\1023789\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\1023789\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 146, in <module>
+    set hallway_menu
+NameError: name 'hallway_menu' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 project_YouJustWokeUp 1.0
-Wed Oct 26 12:18:25 2022
+Wed Oct 26 14:10:31 2022
