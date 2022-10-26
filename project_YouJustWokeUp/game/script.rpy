@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define you = Character("You")
+define you = Character("You", color="1f1fff")
 
 
 # The game starts here.
@@ -19,76 +19,91 @@ label start:
 
     # These display lines of dialogue.
 
-    "Time - 10:30am"
+    "Player wakes up in their room to the sound of an alarm."
 
     you "Ugh, I need to get up..."
 
-    menu:
-        "Stay in Bed":
-            you "Nah I'll stay in bed..."
-        "Stay in Bed":
-            you "Nah I'll stay in bed..."
-        "Get out":
-            you "..."
-            you "Nahhh"
-    menu:
-        "Stay in Bed":
-            you "Yeah I'll stay in bed..."
-        "Stay in Bed":
-            you "Yeah I'll stay in bed..."
-        "Get out":
-            you "No! I don't want to."    
-    menu:
-        "Stay in Bed":
-            you "Yeah I'll stay in bed..."
-            "..."
-            you "okay I'll hop out I guess..."
-            jump outOfBedNEU
-        "Get out":
-            you "..."
-            you "Nope"        
-    menu:
-        "GET OUT!":
-            you "OKAY!!! GOD... I'll get up"
-            you "sheeeesh"
-            jump outOfBedNEG
+    default bedroom_menu1 = set()
 
-label outOfBedNEU:
-    "You are now out of bed"
-    "..."
-    "..."
-    "man yesterday was kinda shit..."
-    jump bedroom0
+    menu firstmenu1:
+        set bedroom_menu1 #POTENTIAL fuckywucky line
+        "Turn off alarm":
+            "You reach over and smack the alarm a few times until it stops beeping."
+            jump firstmenu1
+        "Make bed":
+            "You haphazardly pull your sheets up until they're somewhat neat."
+            jump firstmenu1
+        "Exit room":
+            "You leave your bedroom."
+            jump hallway1
+            
+label hallway1:
 
-label outOfBedNEG:
-    "You are out of bed... (finally)"
-    you "CHRIST NOT YOU TOO, SHUT UP FOR ONCE IN A WHILE"
-    "..."
-    "..."
-    "..."
-    you "I hated yesterday, fuck them," 
-    you "sigh*"
-    jump bedroom0
+    "You exit out into the hallway."
 
-label bedroom0:
+    you "I need to go outside today."
 
-    $ topics = ['Make Bed, Set Alarm, Put Shoes Away']
+    default hallway_menu1 = set()
 
-    menu:
-        "Make Bed" if "Make Bed" in topics:
-            "You make your bed, its a bit of a struggle."
-            you "at least it's done now."
-            jump bedroom0
+    menu secondmenu1:
+        set hallway_menu1
+        "Look in the mirror":
+            jump mirror1
+        "Go to the living room":
+            "You walk into your living room."
+            jump livingroom1
 
-        "Set Alarm" if "Set Alarm" in topics:
-            you "uhmmm, 8:45am should do"
-            jump bedroom0
+label mirror1:
 
-        "Put Shoes Away" if "Put Shoes Away" in topics:
-            you "they caaan goooooooo"
-            you "over here"
-            jump bedroom0
+    you "My reflection."
 
+    default mirror_menu1 = set()
+
+    menu thirdmenu1:
+        set mirror_menu1
+        "Examine reflection":
+            "Your reflection. You seem tired. You should head to bed early tonight."
+            jump thirdmenu1
+        "Stop looking at reflection":
+            jump hallway1
+
+
+label livingroom1:
+
+    default livingroom_menu1 = set()
+
+    menu fourthmenu1:
+        set livingroom_menu1
+        "Look at photos":
+            "Your friends and familt. You haven't spoken to them in a while."
+            jump fourthmenu1
+        "Examine plants":
+            "Potted plants. They're starting to wilt. You should water them later."
+            "You need to go outside now though."
+            jump fourthmenu1
+        "Look at TV":
+            "Nothing interesting playing."
+            jump fourthmenu1
+        "Exit living room":
+            jump frontdoor1
+
+label frontdoor1:
+    "You enter your front foyer."
+    default frontdoor_menu1 = set()
+
+    menu fifthmenu1:
+        set frontdoor_menu1
+        "Grab shoes":
+            "You grab your blue sneakers."
+            jump fifthmenu1
+        "Examine door":
+            "Your front door. It seems like a nice day outside. You should go outside."
+            jump fifthmenu1
+        "Examine window":
+            "A window. You should go outside."
+            jump fifthmenu1
+        "Exit front door":
+            "First loop ended."
     # This ends the game.
 
 return
