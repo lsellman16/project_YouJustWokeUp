@@ -6,6 +6,7 @@
 define you = Character("You", color="1f1fff")
 
 
+
 label start:
 
     scene bedroomloopone
@@ -253,7 +254,7 @@ label frontdoor2:
             "It seems darker than before, maybe go investigate."
             jump loop2menu5
         "Exit front door":
-            "Second loop ended."
+            "You head outside."
 
 # ////
 # END OF LOOP 2
@@ -261,7 +262,7 @@ label frontdoor2:
 
 label bedroom3:
  
-    scene bedroomloopone
+    scene bedroomloopthree
     with fade
  
     you "I need to get out of here."
@@ -275,14 +276,13 @@ label bedroom3:
             jump loop3menu1
         "Make bed":
             "What's the point?"
-            scene madebed
             jump loop3menu1
         "Exit room":
             jump hallway3
            
 label hallway3:
  
-    scene hallwayloopone
+    scene hallwayloopthree
     with fade
  
     you "I need to leave."
@@ -298,7 +298,7 @@ label hallway3:
  
 label mirror3:
  
-    scene mirrorloopone
+    scene mirrorloopthree
     with fade
  
     you "It's... me?"
@@ -316,7 +316,7 @@ label mirror3:
  
 label livingroom3:
  
-    scene livingroomloopone
+    scene livingroomloopthree
     with fade
  
     default livingroom_menu3 = set()
@@ -337,9 +337,23 @@ label livingroom3:
  
 label frontdoor3:
  
-    scene frontdoorloopone
-    with fade
- 
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+
     default frontdoor_menu3 = set()
  
     menu loop3menu5:
@@ -353,5 +367,131 @@ label frontdoor3:
         "Exit front door":
             "You enter your room."
 
+#////
+#END OF LOOP 3
+#////
+
+label bedroom4:
+
+    scene bedroomloopfour
+    with fade
+
+    default bedroom_menu4 = set()
+
+    menu loop4menu1:
+        set bedroom_menu4 #POTENTIAL fuckywucky line
+        "Inspect alarm":
+            "43:79am"
+            jump loop4menu1
+        "Make bed":
+            "..."
+            jump loop4menu1
+        "Exit room":
+            jump hallway4
+            
+label hallway4:
+
+    scene hallwayloopfour
+    with fade
+
+    default hallway_menu4 = set()
+
+    menu loop4menu2:
+        set hallway_menu4 #POTENTIAL fuckywucky line
+        "Look in the mirror":
+            jump mirror4
+        "Go to the living room":
+            jump livingroom4
+
+label mirror4:
+
+    scene mirrorloopfour
+    with fade
+
+    you "My reflection."
+
+    default mirror_menu4 = set()
+
+    menu loop4menu3:
+        set mirror_menu4
+        "Look in the mirror":
+            "It's you."
+            jump loop4menu3
+        "Stop looking at reflection":
+            jump hallway4
+
+
+label livingroom4:
+
+    scene livingroomloopfour
+    with fade
+
+    default livingroom_menu4 = set()
+
+    menu loop4menu4:
+        set livingroom_menu4
+        "Look at photos":
+            "They're gone."
+            jump loop4menu4
+        "Examine plants":
+            "They're gone."
+            jump loop4menu4
+        "Look at TV":
+            "They're gone."
+            jump loop4menu4
+        "Exit living room":
+            jump frontdoor4
+
+label frontdoor4:
+
+    scene frontdoorloopfour
+    with fade
+
+    default frontdoor_menu4 = set()
+
+    menu loop4menu5:
+        set frontdoor_menu4
+        "Examine door":
+            "You need to go outside."
+            jump loop4menu5
+        "Examine open window":
+            "Outside is hell. There's nothing for you there."
+            jump loop4menu5
+        "Decide":
+            jump decision
+
+label decision:
+
+    scene frontdoorloopfour
+
+    default decision_menu1 = set()
+
+    menu loop4menu6:
+        set decision_menu1
+        "Exit front door":
+            jump goodend
+            "You exit your front door..."
+        "Go back to bed":
+            jump badend
+            "You retreat to bed..."
+
+label goodend:
+
+    scene goodendbg
+    with fade
+
+    "The window showed a hellscape outside, pulsating monsters made of eyes and flesh."
+    "These delusions were just that. Delusions. The mind playing tricks on itself."
+    "Despite it all, you persevered."
+    "You're outside now."
+
+label badend:
+
+    scene badendbg
+    with fade
+
+    "This looping nightmare is eating at your mind."
+    "You buckle under the weight of it all and retreat to where you feel some semblance of safety." 
+    "Closing the door to your bedroom, you crawl beneath your covers. Perhaps you'll return to try again sometime."
 
 return
