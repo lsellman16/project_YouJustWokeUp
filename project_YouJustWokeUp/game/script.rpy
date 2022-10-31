@@ -6,14 +6,11 @@
 define you = Character("You", color="1f1fff")
 
 
-# The game starts here.
 
 label start:
 
     scene bedroomloopone
     with fade
-
-    # These display lines of dialogue.
 
     "Player wakes up in their room to the sound of an alarm."
 
@@ -28,6 +25,7 @@ label start:
             jump loop1menu1
         "Make bed":
             "You haphazardly pull your sheets up until they're somewhat neat."
+            scene madebed
             jump loop1menu1
         "Exit room":
             "You leave your bedroom."
@@ -112,10 +110,16 @@ label frontdoor1:
             "A window. You should go outside."
             jump loop1menu5
         "Exit front door":
-            "First loop ended."
+            "You head outside."
+        
+
+# ////
+# END OF LOOP 1
+# ////
 
 label bedroom2:   
-    scene bg room
+    scene unmadebed
+    with fade
 
     you "Wait... huh??"
 
@@ -137,6 +141,7 @@ label bedroom2:
             you "Did I?"
             jump loop2menu1
         "Make bed":
+            scene madebedtwo
             "Your bed was made, not anymore apparently"
             you "uggggggh you're joking, huuuuu fine I'll make it again"
             "And so you make it again, don't understand why, it was made before"
@@ -149,6 +154,8 @@ label bedroom2:
             jump hallway2
 
 label hallway2:
+    scene hallwaylooptwo
+    with fade
 
     "You exit out into the hallway."
 
@@ -167,6 +174,8 @@ label hallway2:
             jump livingroom2
 
 label mirror2:
+    scene mirrorlooptwo
+    with fade
 
     you "My reflection..."
     you "It looks a bit off"
@@ -182,9 +191,11 @@ label mirror2:
             "..."
             jump loop2menu3
         "Stop looking at reflection":
-            jump hallway1
+            jump livingroom2
 
 label livingroom2:
+    scene livingroomlooptwo
+    with fade
 
     default livingroom_menu2 = set()
 
@@ -218,6 +229,9 @@ label livingroom2:
 
 
 label frontdoor2:
+    scene frontdoorlooptwo
+    with fade
+
     "You enter your front foyer. Yet like everything, it feels off"
     default frontdoor_menu2 = set()
 
@@ -240,5 +254,244 @@ label frontdoor2:
             "It seems darker than before, maybe go investigate."
             jump loop2menu5
         "Exit front door":
-            "Second loop ended."
+            "You head outside."
+
+# ////
+# END OF LOOP 2
+# ////
+
+label bedroom3:
+ 
+    scene bedroomloopthree
+    with fade
+ 
+    you "I need to get out of here."
+ 
+    default bedroom_menu3 = set()
+ 
+    menu loop3menu1:
+        set bedroom_menu3 #POTENTIAL fuckywucky line
+        "Insepct alarm":
+            "It's not plugged in. Why did you unplug it?"
+            jump loop3menu1
+        "Make bed":
+            "What's the point?"
+            jump loop3menu1
+        "Exit room":
+            jump hallway3
+           
+label hallway3:
+ 
+    scene hallwayloopthree
+    with fade
+ 
+    you "I need to leave."
+ 
+    default hallway_menu3 = set()
+ 
+    menu loop3menu2:
+        set hallway_menu3 #POTENTIAL fuckywucky line
+        "Look in the mirror":
+            jump mirror3
+        "Go to the living room":
+            jump livingroom3
+ 
+label mirror3:
+ 
+    scene mirrorloopthree
+    with fade
+ 
+    you "It's... me?"
+ 
+    default mirror_menu3 = set()
+ 
+    menu loop3menu3:
+        set mirror_menu3
+        "Examine reflection":
+            "You don't seem yourself, are you feeling ok?"
+            jump loop3menu3
+        "Stop looking at reflection":
+            jump hallway3
+ 
+ 
+label livingroom3:
+ 
+    scene livingroomloopthree
+    with fade
+ 
+    default livingroom_menu3 = set()
+ 
+    menu loop3menu4:
+        set livingroom_menu3
+        "Look at photos":
+            "The photos are empty. Where did they all go?"
+            jump loop3menu4
+        "Examine plants":
+            "They're dead. You killed them."
+            jump loop3menu4
+        "Look at TV":
+            "You feel like you're being watched."
+            jump loop3menu4
+        "Exit living room":
+            jump frontdoor3
+ 
+label frontdoor3:
+ 
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+    scene frontdoorloopthreeone
+    pause 0.5
+    scene frontdoorloopthreetwo
+    pause 0.5
+
+    default frontdoor_menu3 = set()
+ 
+    menu loop3menu5:
+        set frontdoor_menu3
+        "Examine door":
+            "You need to leave."
+            jump loop3menu5
+        "Examine window":
+            "There's something out there."
+            jump loop3menu5
+        "Exit front door":
+            "You enter your room."
+
+#////
+#END OF LOOP 3
+#////
+
+label bedroom4:
+
+    scene bedroomloopfour
+    with fade
+
+    default bedroom_menu4 = set()
+
+    menu loop4menu1:
+        set bedroom_menu4 #POTENTIAL fuckywucky line
+        "Inspect alarm":
+            "43:79am"
+            jump loop4menu1
+        "Make bed":
+            "..."
+            jump loop4menu1
+        "Exit room":
+            jump hallway4
+            
+label hallway4:
+
+    scene hallwayloopfour
+    with fade
+
+    default hallway_menu4 = set()
+
+    menu loop4menu2:
+        set hallway_menu4 #POTENTIAL fuckywucky line
+        "Look in the mirror":
+            jump mirror4
+        "Go to the living room":
+            jump livingroom4
+
+label mirror4:
+
+    scene mirrorloopfour
+    with fade
+
+    you "My reflection."
+
+    default mirror_menu4 = set()
+
+    menu loop4menu3:
+        set mirror_menu4
+        "Look in the mirror":
+            "It's you."
+            jump loop4menu3
+        "Stop looking at reflection":
+            jump hallway4
+
+
+label livingroom4:
+
+    scene livingroomloopfour
+    with fade
+
+    default livingroom_menu4 = set()
+
+    menu loop4menu4:
+        set livingroom_menu4
+        "Look at photos":
+            "They're gone."
+            jump loop4menu4
+        "Examine plants":
+            "They're gone."
+            jump loop4menu4
+        "Look at TV":
+            "They're gone."
+            jump loop4menu4
+        "Exit living room":
+            jump frontdoor4
+
+label frontdoor4:
+
+    scene frontdoorloopfour
+    with fade
+
+    default frontdoor_menu4 = set()
+
+    menu loop4menu5:
+        set frontdoor_menu4
+        "Examine door":
+            "You need to go outside."
+            jump loop4menu5
+        "Examine open window":
+            "Outside is hell. There's nothing for you there."
+            jump loop4menu5
+        "Decide":
+            jump decision
+
+label decision:
+
+    scene frontdoorloopfour
+
+    default decision_menu1 = set()
+
+    menu loop4menu6:
+        set decision_menu1
+        "Exit front door":
+            jump goodend
+            "You exit your front door..."
+        "Go back to bed":
+            jump badend
+            "You retreat to bed..."
+
+label goodend:
+
+    scene goodendbg
+    with fade
+
+    "The window showed a hellscape outside, pulsating monsters made of eyes and flesh."
+    "These delusions were just that. Delusions. The mind playing tricks on itself."
+    "Despite it all, you persevered."
+    "You're outside now."
+
+label badend:
+
+    scene badendbg
+    with fade
+
+    "This looping nightmare is eating at your mind."
+    "You buckle under the weight of it all and retreat to where you feel some semblance of safety." 
+    "Closing the door to your bedroom, you crawl beneath your covers. Perhaps you'll return to try again sometime."
+
 return

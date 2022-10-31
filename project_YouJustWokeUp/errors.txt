@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 13: end of line expected.
-    scene bg bedroom.png
-                    ^
+File "game/script.rpy", line 478: expected ':' not found.
+    label goodend
+                 ^
+
+File "game/script.rpy", line 485: expected ':' not found.
+    label badend
+                ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Oct 26 15:35:38 2022
+Tue Nov  1 00:20:38 2022
