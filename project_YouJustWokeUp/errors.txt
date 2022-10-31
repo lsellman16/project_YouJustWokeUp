@@ -2,9 +2,35 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 13: end of line expected.
-    scene bg bedroom.png
-                    ^
+The label loop1menu1 is defined twice, at File "game/script.rpy", line 20:
+    menu loop1menu1:
+and File "game/script.rpy", line 271:
+    menu loop1menu1:
+
+
+The label loop1menu2 is defined twice, at File "game/script.rpy", line 44:
+    menu loop1menu2:
+and File "game/script.rpy", line 292:
+    menu loop1menu2:
+
+
+The label loop1menu3 is defined twice, at File "game/script.rpy", line 61:
+    menu loop1menu3:
+and File "game/script.rpy", line 308:
+    menu loop1menu3:
+
+
+The label loop1menu4 is defined twice, at File "game/script.rpy", line 77:
+    menu loop1menu4:
+and File "game/script.rpy", line 324:
+    menu loop1menu4:
+
+
+The label loop1menu5 is defined twice, at File "game/script.rpy", line 100:
+    menu loop1menu5:
+and File "game/script.rpy", line 345:
+    menu loop1menu5:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Oct 26 15:35:38 2022
+Mon Oct 31 21:57:13 2022
