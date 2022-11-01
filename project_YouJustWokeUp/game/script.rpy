@@ -12,6 +12,8 @@ label start:
     scene bedroomloopone
     with fade
 
+    play music "audio/yjwu_soundtrack.mp3"
+
     "Player wakes up in their room to the sound of an alarm."
 
     you "Ugh, I need to get up..."
