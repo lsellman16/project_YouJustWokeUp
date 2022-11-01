@@ -486,6 +486,8 @@ label goodend:
     "These delusions were just that. Delusions. The mind playing tricks on itself."
     "Despite it all, you persevered."
     "You're outside now."
+    
+return
 
 label badend:
 
